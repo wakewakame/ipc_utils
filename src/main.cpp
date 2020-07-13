@@ -19,7 +19,7 @@ int main() {
 	{
 		std::thread th([&]{
 			Data message;
-			unsigned long recv_size;
+			unsigned long long recv_size;
 			unsigned priority;
 			//receiver.receive(&message, sizeof(Data), recv_size, priority);
 			boost::posix_time::ptime timeout = boost::posix_time::microsec_clock::universal_time() + boost::posix_time::milliseconds(100);
@@ -40,7 +40,7 @@ int main() {
 	{
 		std::thread th([&]{
 			Data message;
-			unsigned long recv_size;
+			unsigned long long recv_size;
 			unsigned priority;
 			//sender.receive(&message, sizeof(Data), recv_size, priority);
 			boost::posix_time::ptime timeout = boost::posix_time::microsec_clock::universal_time() + boost::posix_time::milliseconds(100);

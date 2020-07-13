@@ -16,7 +16,7 @@ int main() {
 	boost::interprocess::message_queue receiver(boost::interprocess::create_only, key.c_str(), 10, sizeof(Data));
 	
 	Data message;
-	unsigned long recv_size;
+	unsigned long long recv_size;
 	unsigned priority;
 	receiver.receive(&message, sizeof(Data), recv_size, priority);
 	std::cout << "receiver : " << message.a << std::endl;

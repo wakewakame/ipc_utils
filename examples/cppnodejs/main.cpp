@@ -18,7 +18,7 @@ Napi::Value Method(const Napi::CallbackInfo& info) {
   boost::interprocess::message_queue receiver(boost::interprocess::create_only, key.c_str(), 1, sizeof(Data));
 
   Data message;
-  unsigned long recv_size;
+  unsigned long long recv_size;
   unsigned priority;
   receiver.receive(&message, sizeof(Data), recv_size, priority);
 

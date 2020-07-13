@@ -10,11 +10,23 @@
         "<(module_root_dir)/../../3rdparty/boost_1_73_0"
       ],
       'defines': [ 'NAPI_DISABLE_CPP_EXCEPTIONS' ],
-      'conditions': [['OS=="mac"', {
-        'xcode_settings': {
-          'GCC_ENABLE_CPP_EXCEPTIONS': 'YES'
+      'conditions': [
+        ['OS=="mac"', {
+          'xcode_settings': {
+            'GCC_ENABLE_CPP_EXCEPTIONS': 'YES'
+          }
+        }],
+        ["OS=='win'", {
+          "defines": [
+            "_HAS_EXCEPTIONS=1"
+          ]
+        }]
+      ],
+      "msvs_settings": {
+        "VCCLCompilerTool": {
+          "ExceptionHandling": 1
         }
-      }]]
+      },
     }
   ]
 }
